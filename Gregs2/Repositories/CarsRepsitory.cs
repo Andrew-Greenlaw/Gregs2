@@ -26,7 +26,18 @@ public class CarsRepository : BaseRepository, IRepository<Car, int>
 
   public List<Car> Get()
   {
-    throw new NotImplementedException();
+    string sql = @"
+    SELECT
+    c.*,
+    a.*
+    FROM cars c
+    JOIN accounts a ON a.id = c.creatorId
+    ;";
+    return _db.Query<Car, Profile, Car>(sql, (c, p) =>
+    {
+      c.Creator = p;
+      return c;
+    }).ToList();
   }
 
   public Car GetById(int id)

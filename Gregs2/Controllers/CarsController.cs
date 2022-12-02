@@ -27,5 +27,18 @@ public class CarsController : ControllerBase
       return BadRequest(e.Message);
     }
   }
+  [HttpGet]
+  public ActionResult<List<Car>> GetCars()
+  {
+    try
+    {
+      List<Car> cars = _cs.GetAllCars();
+      return Ok(cars);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
 
 }

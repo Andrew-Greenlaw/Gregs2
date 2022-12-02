@@ -12,4 +12,9 @@ public class CarsService
   {
     return _repo.Create(carData);
   }
+
+  public List<Car> GetAllCars()
+  {
+    return _repo.Get();
+  }
 }

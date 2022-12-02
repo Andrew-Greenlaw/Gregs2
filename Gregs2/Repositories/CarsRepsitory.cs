@@ -59,6 +59,21 @@ public class CarsRepository : BaseRepository, IRepository<Car, int>
 
   public Car Update(Car data)
   {
-    throw new NotImplementedException();
+    string sql = @"
+    UPDATE cars SET
+    make = @Make,
+    model = @Model,
+    year = @Year,
+    price = @Price,
+    description = @Description,
+    imgUrl = @ImgUrl
+    WHERE id = @Id
+    ;";
+    int rowsEffected = _db.Execute(sql, data);
+    if (rowsEffected == 0)
+    {
+      throw new Exception("something went wrong nothing was changed");
+    }
+    return data;
   }
 }

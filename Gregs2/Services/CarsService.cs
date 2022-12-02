@@ -38,9 +38,10 @@ public class CarsService
     }
     car.Make = carData.Make ?? car.Make;
     car.Model = carData.Model ?? car.Model;
-    // car.Year = carData.Year ?? car.Year;
-    // car.Price = carData.Price ?? car.Price;
-
+    car.Year = carData.Year > 0 ? carData.Year : car.Year;
+    car.Price = carData.Price > 0 ? carData.Price : car.Price;
+    car.Description = carData.Description ?? car.Description;
+    car.ImgUrl = carData.ImgUrl == "https://i.ebayimg.com/thumbs/images/g/ZYMAAOSwp7FaagAd/s-l640.jpg" ? car.ImgUrl : carData.ImgUrl;
     Car updatedCar = _repo.Update(car);
     return updatedCar;
   }

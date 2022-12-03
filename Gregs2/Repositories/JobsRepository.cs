@@ -27,16 +27,49 @@ public class JobsRepository : BaseRepository, IRepository<Job, int>
 
   public List<Job> Get()
   {
-    throw new NotImplementedException();
+    string sql = @"
+    SELECT
+    j.*,
+    a.*
+    FROM jobs j
+    JOIN accounts a ON a.id = j.creatorId
+    ;";
+    return _db.Query<Job, Profile, Job>(sql, (j, p) =>
+    {
+      j.Creator = p;
+      return j;
+    }).ToList();
   }
 
   public Job GetById(int id)
   {
-    throw new NotImplementedException();
+    string sql = @"
+    SELECT
+    j.*,
+    a.*
+    FROM jobs j
+    JOIN accounts a ON a.id = j.creatorId
+    WHERE id = @id
+    ;";
+    return _db.Query<Job, Profile, Job>(sql, (j, p) =>
+    {
+      j.Creator = p;
+      return j;
+    }, new { id }).FirstOrDefault();
   }
 
   public Job Update(Job data)
   {
-    throw new NotImplementedException();
+    string sql = @"
+    UPDATE jobs SET
+    company = @Company,
+    jobTitle = @JobTitle,
+    hours = @Hours,
+    rate = @Rate,
+    description = @Description
+    WHERE id = @Id
+    ;";
+    _db.Execute(sql, data);
+    return data;
   }
 }

@@ -18,6 +18,16 @@ public class CarsService
     return _repo.Get();
   }
 
+  internal void DeleteCar(int id, string userId)
+  {
+    Car car = GetCarById(id);
+    if (car.CreatorId != userId)
+    {
+      throw new Exception("You Do not have permision to delete this car");
+    }
+    _repo.Delete(id);
+  }
+
   internal Car GetCarById(int id)
   {
 

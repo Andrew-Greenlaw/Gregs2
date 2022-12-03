@@ -69,5 +69,20 @@ public class CarsController : ControllerBase
       return BadRequest(e.Message);
     }
   }
+  [HttpDelete("{id}")]
+  [Authorize]
+  public async Task<ActionResult<string>> DeleteCar(int id)
+  {
+    try
+    {
+      Account userInfo = await _auth0.GetUserInfoAsync<Account>(HttpContext);
+      _cs.DeleteCar(id, userInfo?.Id);
+      return Ok("you succesfully deleted this car");
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
 
 }

@@ -21,7 +21,8 @@ public class CarsRepository : BaseRepository, IRepository<Car, int>
 
   public void Delete(int id)
   {
-    throw new NotImplementedException();
+    string sql = "DELETE FROM cars WHERE id = @id;";
+    _db.Execute(sql, new { id });
   }
 
   public List<Car> Get()

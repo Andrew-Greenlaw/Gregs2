@@ -12,6 +12,6 @@ public class Job : IHasCreator
   public string JobTitle { get; set; }
   public int Hours { get; set; }
   public int Rate { get; set; }
-  public string description { get; set; }
+  public string Description { get; set; }
 
 }

@@ -40,4 +40,48 @@ public class JobsController : ControllerBase
       return BadRequest(e.Message);
     }
   }
+  [HttpGet("{id}")]
+  public ActionResult<Job> GetJobById(int id)
+  {
+    try
+    {
+      Job job = _js.GetJobById(id);
+      return Ok(job);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
+  [HttpPut("{id}")]
+  [Authorize]
+  public async Task<ActionResult<Job>> UpdateJob([FromBody] int id, Job jobData)
+  {
+    try
+    {
+      Account userInfo = await _auth0.GetUserInfoAsync<Account>(HttpContext);
+      jobData.Id = id;
+      Job job = _js.UpdateJob(jobData, userInfo?.Id);
+      return Ok(job);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
+  [HttpDelete("{id}")]
+  [Authorize]
+  public async Task<ActionResult<string>> DeleteJob(int id)
+  {
+    try
+    {
+      Account userInfo = await _auth0.GetUserInfoAsync<Account>(HttpContext);
+      _js.DeleteJob(id, userInfo.Id);
+      return Ok("you succesfully deleted this job");
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
 }

@@ -1,5 +1,4 @@
 using Gregs2.interfaces;
-
 namespace Gregs2.Repositories;
 public class CarsRepository : BaseRepository, IRepository<Car, int>
 {

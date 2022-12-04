@@ -14,4 +14,9 @@ public class Car : IHasCreator
   public int Id { get; set; }
   public DateTime CreatedAt { get; set; }
   public DateTime UpdatedAt { get; set; }
+  public bool IsSold { get; set; }
+}
+public class FavoritedCar : Car
+{
+  public int FavoriteId { get; set; }
 }

@@ -15,3 +15,7 @@ public class Job : IHasCreator
   public string Description { get; set; }
 
 }
+public class FavoritedJob : Job
+{
+  public int FavoriteId { get; set; }
+}

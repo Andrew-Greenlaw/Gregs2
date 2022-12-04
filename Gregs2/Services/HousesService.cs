@@ -7,4 +7,9 @@ public class HousesService
   {
     _repo = repo;
   }
+
+  internal House CreateHouse(House houseData)
+  {
+    return _repo.Create(houseData);
+  }
 }

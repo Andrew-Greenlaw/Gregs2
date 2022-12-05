@@ -27,4 +27,47 @@ public class HousesController : ControllerBase
       return BadRequest(e.Message);
     }
   }
+  [HttpGet]
+  public ActionResult<List<House>> GetAllHouses()
+  {
+    try
+    {
+      List<House> houses = _hs.GetAllHouses();
+      return Ok(houses);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
+
+  [HttpGet("{id}")]
+  public ActionResult<House> GetHouseById(int id)
+  {
+    try
+    {
+      House house = _hs.GetById(id);
+      return Ok(house);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
+  [HttpPut("{id}")]
+  [Authorize]
+  public async Task<ActionResult<House>> UpdateHouse([FromBody] int id, House houseData)
+  {
+    try
+    {
+      Account userInfo = await _auth0.GetUserInfoAsync<Account>(HttpContext);
+      houseData.Id = id;
+      House house = _hs.UpdateHouse(houseData, userInfo?.Id);
+      return Ok(house);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
 }

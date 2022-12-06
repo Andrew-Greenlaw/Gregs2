@@ -27,6 +27,7 @@ public class HousesController : ControllerBase
       return BadRequest(e.Message);
     }
   }
+
   [HttpGet]
   public ActionResult<List<House>> GetAllHouses()
   {
@@ -64,6 +65,21 @@ public class HousesController : ControllerBase
       houseData.Id = id;
       House house = _hs.UpdateHouse(houseData, userInfo?.Id);
       return Ok(house);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
+  [HttpDelete("{id}")]
+  [Authorize]
+  public async Task<ActionResult<string>> DeleteHouse(int id)
+  {
+    try
+    {
+      Account userInfo = await _auth0.GetUserInfoAsync<Account>(HttpContext);
+      _hs.DeleteHouse(id, userInfo.Id);
+      return Ok("You Successfully Deleted this House");
     }
     catch (Exception e)
     {

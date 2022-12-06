@@ -13,6 +13,16 @@ public class HousesService
     return _repo.Create(houseData);
   }
 
+  internal void DeleteHouse(int id, string userId)
+  {
+    House house = GetById(id);
+    if (house.CreatorId == null)
+    {
+      throw new Exception("You do not have Permision to Delete this");
+    }
+    _repo.Delete(id);
+  }
+
   internal List<House> GetAllHouses()
   {
     return _repo.Get();

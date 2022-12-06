@@ -70,7 +70,11 @@ public class JobsRepository : BaseRepository, IRepository<Job, int>
     description = @Description
     WHERE id = @Id
     ;";
-    _db.Execute(sql, data);
+    int rowsEffected = _db.Execute(sql, data);
+    if (rowsEffected == 0)
+    {
+      throw new Exception("something went wrong nothing was changed");
+    }
     return data;
   }
 }

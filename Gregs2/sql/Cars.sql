@@ -9,6 +9,8 @@ CREATE TABLE IF NOT EXISTS cars(
   year int NOT NULL CHECK(year >= 1886),
   imgUrl VARCHAR(255) NOT NULL DEFAULT "https://www.autolist.com/assets/listings/default_car.jpg",
   price DECIMAL(10,2) NOT NULL CHECK(price >= 0),
-  description VARCHAR(255)
-  isSold TINYINT DEFAULT 0;
+  description VARCHAR(255),
+  isSold TINYINT DEFAULT 0,
+  creatorId VARCHAR(255) NOT NULL,
+  FOREIGN KEY (creatorId) REFERENCES accounts(id) ON DELETE CASCADE
 ) default charset utf8 COMMENT '';

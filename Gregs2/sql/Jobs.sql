@@ -7,5 +7,7 @@ CREATE TABLE IF NOT EXISTS jobs(
   jobTitle VARCHAR(255)NOT NULL,
   hours int CHECK(hours >= 0),
   rate int CHECK(rate >= 0) NOT NULL,
-  description VARCHAR(255) NOT NULL
+  description VARCHAR(255) NOT NULL,
+  creatorId VARCHAR(255) NOT NULL,
+  FOREIGN KEY (creatorId) REFERENCES accounts(id) ON DELETE CASCADE
 ) default charset utf8 COMMENT '';

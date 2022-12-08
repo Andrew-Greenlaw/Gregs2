@@ -1,3 +1,4 @@
+-- Active: 1669828541873@@localhost@3306@local_schema
 CREATE TABLE IF NOT EXISTS houses(
   id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   createdAt DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Time Created',
@@ -9,4 +10,6 @@ CREATE TABLE IF NOT EXISTS houses(
   price int NOT NULL CHECK(price >= 0),
   description VARCHAR(255),
   isSold TINYINT DEFAULT 0,
+  creatorId VARCHAR(255) NOT NULL,
+  FOREIGN KEY (creatorId) REFERENCES accounts(id) ON DELETE CASCADE
 ) default charset utf8 COMMENT '';

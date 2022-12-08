@@ -55,7 +55,7 @@ public class JobsController : ControllerBase
   }
   [HttpPut("{id}")]
   [Authorize]
-  public async Task<ActionResult<Job>> UpdateJob([FromBody] int id, Job jobData)
+  public async Task<ActionResult<Job>> UpdateJob([FromBody] Job jobData, int id)
   {
     try
     {

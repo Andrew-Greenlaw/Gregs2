@@ -3,6 +3,11 @@ public class JobsService
 {
   private readonly JobsRepository _repo;
 
+  public JobsService(JobsRepository repo)
+  {
+    _repo = repo;
+  }
+
   internal Job CreateJob(Job jobData)
   {
     return _repo.Create(jobData);

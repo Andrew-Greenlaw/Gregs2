@@ -55,7 +55,7 @@ public class CarsController : ControllerBase
   }
   [HttpPut("{id}")]
   [Authorize]
-  public async Task<ActionResult<Car>> UpdateCar([FromBody] int id, Car carData)
+  public async Task<ActionResult<Car>> UpdateCar([FromBody] Car carData, int id)
   {
     try
     {

@@ -1,4 +1,4 @@
--- Active: 1669828541873@@localhost@3306@local_schema
+-- Active: 1670552179554@@localhost@3306@local_schema
 CREATE TABLE IF NOT EXISTS accounts(
   id VARCHAR(255) NOT NULL primary key COMMENT 'primary key',
   createdAt DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Time Created',

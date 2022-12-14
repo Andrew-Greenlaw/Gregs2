@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { computed } from '@vue/reactivity'
 import { onMounted } from 'vue';
 import { carsService } from '../services/CarsService.js'
 import { AppState } from '../AppState.js';

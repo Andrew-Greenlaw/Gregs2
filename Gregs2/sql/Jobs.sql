@@ -1,4 +1,4 @@
--- Active: 1669828541873@@localhost@3306
+-- Active: 1670981605080@@localhost@3306@local_schema
 CREATE TABLE IF NOT EXISTS jobs(
   id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   createdAt DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Time Created',

@@ -1,7 +1,7 @@
 <template>
-  <div class="home-page container-fluid">
-    <div class="row">
-      <CarCard v-for="c in cars" :car="c" :key="c.id" />
+  <div class="home-page row">
+    <div>
+
     </div>
   </div>
 </template>

@@ -1,11 +1,11 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <nav class="navbar navbar-expand navbar-dark bg-dark px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <img alt="logo" src="../assets/img/cw-logo.png" height="45" />
       </div>
     </router-link>
-    <div class="">
+    <div class="d-flex justify-content-between w-100 align-items-center">
       <ul class="navbar-nav me-auto">
         <li>
           <router-link :to="{ name: 'Cars' }" class="btn text-success lighten-30 selectable text-uppercase">

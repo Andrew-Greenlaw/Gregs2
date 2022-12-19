@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page row">
+  <div class="home-page row p-3">
     <CarCard v-for="c in cars" :car="c" :key="c.id" />
   </div>
 </template>

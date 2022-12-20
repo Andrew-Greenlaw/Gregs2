@@ -24,7 +24,7 @@
         </li>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
-      <Login />
+
     </div>
   </nav>
 </template>

@@ -1,7 +1,32 @@
 <template>
-  <div class="home-page row">
-    <div>
-
+  <div class="home-page row justify-content-center">
+    <div class="col-12 d-flex justify-content-center p-3 bg-light">
+      <!-- TODO searchbar -->
+      -------------search bar--------------
+    </div>
+    <div class="col-3 mt-3 p-1">
+      <div class="d-flex bg-light justify-content-center">
+        cars
+      </div>
+      <div class="bg-secondary">
+        search options
+      </div>
+    </div>
+    <div class="col-3 mt-3 p-1">
+      <div class="d-flex bg-light justify-content-center">
+        jobs
+      </div>
+      <div class="bg-secondary">
+        search options
+      </div>
+    </div>
+    <div class="col-3 mt-3 p-1">
+      <div class="d-flex bg-light justify-content-center">
+        houses
+      </div>
+      <div class="bg-secondary">
+        search options
+      </div>
     </div>
   </div>
 </template>

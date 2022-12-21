@@ -15,7 +15,7 @@ export default {
   setup() {
     async function getJobs() {
       try {
-        jobsService.getJobs()
+        await jobsService.getJobs()
       } catch (error) {
         Pop.error("[getJobs]", error)
       }

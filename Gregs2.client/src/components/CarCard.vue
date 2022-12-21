@@ -1,19 +1,14 @@
 <template>
-  <div class="cars-card col-md-4 elevation-2 mb-3 p-3 selectable">
-    <div>
-      <h3>{{ car.make }} | {{ car.model }}</h3>
-      <img :src="car.imgUrl" alt="Car Image" class="car-img img-fluid">
+  <div class="cars-card col-md-4">
+    <div class="shadow car-image" :style="{ backgroundImage: `url(${car.imgUrl})` }">
     </div>
-    <div class="car-text">
-      <div>
-        <h4>{{ car.year }}</h4>
-        <h4>{{ car.price }}</h4>
+    <div class="shadow car-text mt-3 bg-secondary p-2 text-center">
+      <h3>{{ car.make }} {{ car.model }}</h3>
+      <div class="d-flex justify-content-around ">
+        <h5>{{ car.price }}</h5>
+        <span>|</span>
+        <h5>{{ car.year }}</h5>
       </div>
-    </div>
-    <div class="car-creator d-flex justify-content-between align-items-center w-100">
-      <!-- routerlink might go here -->
-      <p>contact?</p>
-      <img :src="car.creator?.picture" alt="Creator Img" height="35" width="35">
     </div>
     <div v-if="car.isSold">
       <h3>SOLD</h3>
@@ -41,14 +36,15 @@ export default {
 
 <style lang="scss" scoped>
 .cars-card {
-  background-color: lightgrey;
   transition: transform .3s;
 
   .car-image {
+    background-size: cover;
     object-fit: cover;
-    object-position: center;
-    height: 5rem;
-    width: 5rem;
+    background-position: center;
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
   }
 
   .car-text {

@@ -1,7 +1,6 @@
 <template>
-  <div class="component">
-
-
+  <div class="jobs-page">
+    {{ jobs }}
   </div>
 </template>
 
@@ -10,6 +9,8 @@
 import { onMounted } from 'vue';
 import { jobsService } from '../services/JobsService.js'
 import Pop from '../utils/Pop.js';
+import { computed } from '@vue/reactivity';
+import { AppState } from '../AppState.js';
 
 export default {
   setup() {
@@ -23,7 +24,9 @@ export default {
     onMounted(() => {
       getJobs()
     })
-    return {}
+    return {
+      jobs: computed(() => { AppState.jobs })
+    }
   }
 }
 </script>

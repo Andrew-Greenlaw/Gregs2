@@ -13,9 +13,15 @@
                 Create Listing
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Car</a></li>
-                <li><a class="dropdown-item" href="#">Job</a></li>
-                <li><a class="dropdown-item" href="#">House</a></li>
+                <li>
+                  <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#newCarModal">Car</div>
+                </li>
+                <li>
+                  <div class="dropdown-item" href="#">Job</div>
+                </li>
+                <li>
+                  <div class="dropdown-item" href="#">House</div>
+                </li>
               </ul>
             </div>
             <div class="dropdown">
@@ -45,6 +51,9 @@
     All rights reserved to me
     <i class="mdi"></i>
   </footer>
+  <ModalComponent id="newCarModal">
+    <NewCarModal />
+  </ModalComponent>
 </template>
 
 <script>

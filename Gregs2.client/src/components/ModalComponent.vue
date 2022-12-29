@@ -1,7 +1,8 @@
 <template>
-  <div class="component">
+  <div class="modal fade" tabindex="-1" aria-labelledby="keepModalLabel" aria-hidden="true">
+    <slot>
 
-
+    </slot>
   </div>
 </template>
 

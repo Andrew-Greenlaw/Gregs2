@@ -21,9 +21,9 @@
                 placeholder="Description" rows="3" required aria-label="Description Input" maxlength="100"></textarea>
             </div>
             <div class="mb-3">
-              <label for="keepImg" class="form-label ps-2">Image</label>
-              <input type="url" class="form-control" id="keepImg" v-model="editable.img"
-                placeholder="https://Img.com.png" required>
+              <label for="carImgUrl" class="form-label ps-2">Image</label>
+              <input type="url" class="form-control" id="carImgUrl" v-model="editable.imgUrl"
+                placeholder="https://Img.com.png">
             </div>
           </div>
           <div class="modal-footer">
@@ -41,6 +41,8 @@
 import { ref } from 'vue';
 import Pop from '../utils/Pop.js';
 import { carsService } from '../services/CarsService.js';
+import { AppState } from '../AppState.js';
+import { AuthService } from '../services/AuthService.js';
 
 export default {
   setup() {
@@ -53,7 +55,7 @@ export default {
           if (!AppState.account.id) {
             return AuthService.loginWithRedirect()
           }
-          await carsService.createCar()
+          await carsService.createCar(editable.value)
         } catch (error) {
           Pop.error("[handle submit]", error)
         }

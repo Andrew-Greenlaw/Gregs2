@@ -9,10 +9,10 @@ class CarsService {
     AppState.cars = res.data.map(c => new Car(c))
     console.log('cars?', AppState.cars)
   }
-  async createCars() {
-    const res = await api.post('api/cars')
+  async createCar(data) {
+    const res = await api.post('api/cars', data)
     console.log('[created car]', res.data)
-    AppState.cars.push(res.data)
+    AppState.cars.push(new Car(res.data))
     console.log(AppState.cars)
   }
 } []

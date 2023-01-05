@@ -1,5 +1,5 @@
 <template>
-  <div class="modal fade" tabindex="-1" aria-labelledby="keepModalLabel" aria-hidden="true">
+  <div class="modal fade" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
     <slot>
 
     </slot>

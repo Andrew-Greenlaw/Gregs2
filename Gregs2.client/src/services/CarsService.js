@@ -15,5 +15,11 @@ class CarsService {
     AppState.cars.push(new Car(res.data))
     console.log(AppState.cars)
   }
+  async editCar(id, data) {
+    const res = await api.put(`api/cars/${id}`, data)
+    console.log('[edited car]', res.data)
+
+
+  }
 } []
 export const carsService = new CarsService()

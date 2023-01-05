@@ -18,6 +18,10 @@ class CarsService {
   async editCar(id, data) {
     const res = await api.put(`api/cars/${id}`, data)
     console.log('[edited car]', res.data)
+    const updatedCar = new Car(res.data)
+    const index = AppState.cars.findIndex(c => c.id = id)
+    AppState.cars.splice(index, 1, updatedCar)
+    // Appstate.emit('cars')         do i need to do this? and Why?
 
 
   }

@@ -29,5 +29,10 @@ class CarsService {
     AppState.cars.splice(index, 1, updatedCar)
     // Appstate.emit('cars')         do i need to do this? and Why?
   }
+  async deleteCar(id) {
+    const res = await api.delete(`api/cars/${id}`)
+    console.log('deleted?', res.data)
+    AppState.cars.filter(c => c.id != id)
+  }
 } []
 export const carsService = new CarsService()

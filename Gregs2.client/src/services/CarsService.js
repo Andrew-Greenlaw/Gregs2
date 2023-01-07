@@ -33,6 +33,7 @@ class CarsService {
     const res = await api.delete(`api/cars/${id}`)
     console.log('deleted?', res.data)
     AppState.cars.filter(c => c.id != id)
+    console.log('new array', AppState.cars)
   }
 } []
 export const carsService = new CarsService()

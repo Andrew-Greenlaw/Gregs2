@@ -9,5 +9,12 @@ class JobsService {
     AppState.jobs = res.data.map(j => new Job(j))
     console.log("[jobs]", AppState.jobs)
   }
+  async getJobById(id) {
+    const res = await api.get(`api/jobs/${id}`)
+    console.log('job', res.data)
+    AppState.activeJob = new Job(res.data)
+    console.log('proxy obj job', AppState.activeJob)
+  }
+
 }
 export const jobsService = new JobsService()
